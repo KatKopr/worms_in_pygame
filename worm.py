@@ -6,7 +6,7 @@ from rocket import Rocket
 
 class Worm:
     
-    def __init__(self, x, y):
+    def __init__(self, x, y, name):
         self.x = x
         self.y = y
         self.health = 0.8
@@ -14,6 +14,11 @@ class Worm:
         self.color=(255,0,0)
         self.rocket_type=1
         self.speed=100
+        self.control=[]
+        self.name=name
+    
+    def add_control(self, control):
+        self.control=control
         
     def process_events(self, time_delta, events, world, terrain):
         keys = pygame.key.get_pressed()
@@ -32,7 +37,8 @@ class Worm:
         p = max(0, 40 - abs(self.x-x) - abs(self.y-y))
         self.health = max(0, self.health - p / 100.0)
         if self.health==0:
-            world.dead(self)
+            #self.control.add_events("dead")
+            self.dead()
         self.fall(terrain)
 
     def draw(self, window):
@@ -43,6 +49,14 @@ class Worm:
     
     def fall(self, terrain):
         self.y=int(terrain.get_level(self.x))
+        
+    def dead(self):
+        self.color=(255,255,255)
+        self.speed=0
+        #self.write("You are dead", (0,255,0))
+        
+    def write(self, text, color):
+        self.control.write(text, color, self.x, self.y)
     
         
 
