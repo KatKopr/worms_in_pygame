@@ -18,11 +18,11 @@ class Rocket:
         y = self.y - 0.005*t*t + t
         return (x, y)
         
-    def process_events(self, time_delta, world, terrain):
+    def process_events(self, worm, time_delta, world, terrain):
         self.t += time_delta;
         (x, y) = self.get_pos()
         if terrain.get_level(int(x)) > y:
-            world.remove_rocket(self)
+            worm.remove_rocket(self)
             world.explode(x, y)
 
     def draw(self, window):
