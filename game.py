@@ -14,6 +14,7 @@ class Game:
     def start(self, gamers):
         self.world=self.control.start_world(gamers)
         self.running=True
+        self.control.add_game(self)
     
     def run(self, prev_time):
         pygame.time.delay(20)
@@ -25,10 +26,15 @@ class Game:
                 self.control.change_worm()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 self.control.change_weapon()
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_p:
+                self.control.timer.change_state()
+            if event.type == self.control.timer.COUNTDOWN:
+                self.control.timer.countdown()
+            #self.control.winner=self.control.alive_worms[0].name
+            #self.quit
         next_time = time.time()            
         self.world.process_events(next_time - prev_time, events, self.control.worm_no)
         self.time = next_time
-
         self.control.win.fill((0,0,0))
         self.world.draw(self.control.win)
         #control.process_events()

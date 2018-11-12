@@ -4,7 +4,7 @@ import pygame
 from rocket import Rocket
 class Worm:
     
-    def __init__(self, x, y, name):
+    def __init__(self, x, y, name, number):
         self.x = x
         self.y = y
         self.health = 0.8
@@ -15,6 +15,8 @@ class Worm:
         self.speed=100
         self.control=[]
         self.name=name
+        self.can_shoot=True
+        self.number=number
     
     def add_control(self, control):
         self.control=control
@@ -22,7 +24,7 @@ class Worm:
     def add_rocket(self, r):
         self.rockets.append(r)
         
-    def remove_rocket(self, r):
+    def remove_rocket(self,r):
         self.rockets = []
         
     def process_events(self, time_delta, events, world, terrain):
@@ -35,7 +37,7 @@ class Worm:
             self.x += int(time_delta * self.speed)
         self.y = int(terrain.get_level(self.x))
         for event in events:
-            if event.type == pygame.KEYDOWN and event.key == ord("r"):
+            if event.type == pygame.KEYDOWN and event.key == ord("r") and self.can_shoot:
                 self.add_rocket(Rocket(self.x, self.y, self.orientation, self.rocket_type))
         for r in self.rockets:
             r.process_events(self, time_delta, world, terrain)
@@ -63,6 +65,11 @@ class Worm:
     def dead(self):
         self.color=(255,255,255)
         self.speed=0
+        self.can_shoot=False
+        self.control.alive_worms[self.number]=0
+        print(sum(self.control.alive_worms))
+        if sum(self.control.alive_worms)<2:
+            self.control.over()
         #self.write("You are dead", (0,255,0))
         
     def write(self, text, color):

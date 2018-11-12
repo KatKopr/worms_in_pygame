@@ -12,7 +12,7 @@ class World:
         self.worms=[]
         self.gamers=gamers
         for i in range(len(gamers)):
-            self.worms += [Worm(300+i*200, self.terrain.get_level(300+i*200), gamers[i])]
+            self.worms += [Worm(300+i*200, self.terrain.get_level(300+i*200), gamers[i],i)]
         self.rockets = []
         self.window=window
         self.control = []

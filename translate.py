@@ -6,4 +6,4 @@ class Translate:
         self.window=window
     
     def coordinates(self, x, y):
-        return (x, self.window.get_height()-y)
+        
