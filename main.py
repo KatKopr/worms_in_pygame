@@ -24,10 +24,13 @@ while start_window.running:
     start_window.run(prev_time)
     prev_time=start_window.time
 
-game.start(gamers)
-
-while game.running:
-    game.run(prev_time)
-    prev_time=game.time
+while game.start_again:
+    game.start(gamers)
+    while game.running:
+        game.run(prev_time)
+        prev_time=game.time
+    print("koniec")
+    #start_window.run(prev_time)
+    
 
 pygame.quit()

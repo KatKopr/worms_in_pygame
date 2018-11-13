@@ -25,6 +25,7 @@ class Frame:
             self.write(text3, x, y-40, 30)
         else:
             self.winner()
+            self.control.game.over()
     def write(self, text, x, y, size):
         self.control.write(text, (0,255,0), x, y, size)
     
@@ -38,8 +39,10 @@ class Frame:
         else:
             text="WINNER: NONE"
         text2="GAME OVER"
-        self.write(text2, x, y-50)
+        #text3="PRESS A TO START AGAIN"
+        self.write(text2, x, y+50, 30)
         self.write(text, x, y, 30)
+        #self.write(text3, x, y-50, 30)
         
     
     

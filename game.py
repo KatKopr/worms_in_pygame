@@ -10,13 +10,17 @@ class Game:
         self.world=[]
         self.running=[]
         self.time=[]
+        self.gamers=[]
+        self.start_again=True
     
     def start(self, gamers):
         self.world=self.control.start_world(gamers)
+        self.gamers=gamers
         self.running=True
         self.control.add_game(self)
     
     def run(self, prev_time):
+        self.start_again=False
         pygame.time.delay(20)
         events = pygame.event.get()
         for event in events:
@@ -26,7 +30,8 @@ class Game:
                 self.control.change_worm()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 self.control.change_weapon()
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_p:
+            elif event.type == pygame.KEYDOWN:
+            #and event.key == pygame.K_p:
                 self.control.timer.change_state()
             if event.type == self.control.timer.COUNTDOWN:
                 self.control.timer.countdown()
@@ -42,5 +47,17 @@ class Game:
         
     def quit(self):
         self.running=False
+    
+    def over(self):
+        events=pygame.event.get()
+        for event in events:
+            print("prawie koniec1")
+            if event.type == pygame.QUIT:
+                self.quit()
+            if event.type == pygame.KEYDOWN:
+                self.start_again=True
+                print("prawie koniec")
+                self.quit()
+            
         
 
