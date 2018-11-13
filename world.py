@@ -12,7 +12,7 @@ class World:
         self.worms=[]
         self.gamers=gamers
         for i in range(len(gamers)):
-            self.worms += [Worm(300+i*200, self.terrain.get_level(300+i*200), gamers[i],i)]
+            self.worms += [Worm(300+i*200, self.terrain.get_level(300+i*200)+15, gamers[i],i)]
         self.rockets = []
         self.window=window
         self.control = []
@@ -20,13 +20,13 @@ class World:
     def add_control(self, control):
         self.control=control
 
-    def process_events(self, time_delta, events, worm):
-        self.worms[worm].process_events(time_delta, events, self, self.terrain)
+    #def process_events(self, time_delta, events, worm):
+        #self.worms[worm].process_events(time_delta, events, self, self.terrain)
         #for r in self.rockets:
             #r.process_events(time_delta, self, self.terrain)
         
-    def explode(self, x, y):
-        self.terrain.explode(x, y)
+    def explode(self, x, y, type):
+        self.terrain.explode(x, y, type)
         for w in self.worms:
             w.explode(x, y, self.terrain, self)
         

@@ -33,7 +33,7 @@ class Game:
             #self.control.winner=self.control.alive_worms[0].name
             #self.quit
         next_time = time.time()            
-        self.world.process_events(next_time - prev_time, events, self.control.worm_no)
+        self.control.process_events(next_time - prev_time, events, self.control.worm_no)
         self.time = next_time
         self.control.win.fill((0,0,0))
         self.world.draw(self.control.win)

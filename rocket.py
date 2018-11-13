@@ -5,7 +5,7 @@ import pygame
 class Rocket:
     SPEED = 100
     
-    def __init__(self, x, y, o,type):
+    def __init__(self, x, y, o, type):
         self.x = x
         self.y = y
         self.t = 0
@@ -19,15 +19,15 @@ class Rocket:
         return (x, y)
         
     def process_events(self, worm, time_delta, world, terrain):
-        self.t += time_delta;
+        self.t += time_delta - self.type*time_delta*0.5;
         (x, y) = self.get_pos()
         if terrain.get_level(int(x)) > y:
             worm.remove_rocket(self)
-            world.explode(x, y)
+            world.explode(x, y, self.type)
 
     def draw(self, window):
         (x, y) = self.get_pos()
-        if self.type==1:
+        if self.type==0:
             pygame.draw.circle(window, (255,0,0), (int(x), window.get_height() - int(y)), 2)
-        elif self.type==2:
-            pygame.draw.circle(window, (0,255,0), (int(x), window.get_height() - int(y)), 2)
+        elif self.type==1:
+            pygame.draw.circle(window, (0,255,0), (int(x), window.get_height() - int(y)), 4)

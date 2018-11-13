@@ -15,6 +15,7 @@ class Control:
         self.win=window
         self.world=[]
         self.events=[]
+        self.rocket_types=["Shotgun","Bazooka"]
         self.timer=Timer(self)
         self.frame=Frame(self)
         self.alive_worms=[]
@@ -27,9 +28,9 @@ class Control:
         self.world = World(self.win, gamers)
         self.world.add_control(self)
         self.worm_no=0
-        self.worm=self.world.worms[self.worm_no]
-        self.weapon=1
         self.worms=self.world.worms
+        self.worm=self.worms[self.worm_no]
+        self.weapon=1
         self.alive_worms=[1]*len(gamers)
         for worm in self.worms:
             worm.add_control(self)
@@ -50,10 +51,7 @@ class Control:
                 self.timer.set_timer(15)
         
     def change_weapon(self):
-        if self.worm.rocket_type==1:
-            self.worm.rocket_type=2
-        else:
-            self.worm.rocket_type=1
+        self.worm.rocket_type=(self.worm.rocket_type+1)%2
             
     def change_coordinates(self, x,y):
         return (x, self.win.get_height()-y)
@@ -68,9 +66,11 @@ class Control:
             self.worm.speed=0
             self.worm.can_shoot=False
             
-    def over(self):
-        self.frame.winner()
-        pygame.time.delay(1000)
-        self.game.quit()
+    #def over(self):
+        #self.frame.winner()
+    
+    def process_events(self, time_delta, events, worm):
+        self.worms[worm].process_events(time_delta, events, self.world, self.world.terrain)
+        
 
                 

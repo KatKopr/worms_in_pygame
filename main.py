@@ -16,7 +16,7 @@ prev_time = time.time()
 
 control=Control(win)
 game=Game(control)
-gamers=("Kasia", "Mama")
+gamers=("Kasia", "Piotr")
 game.start(gamers)
 
 while game.running:
