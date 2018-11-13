@@ -34,7 +34,7 @@ class Control:
         self.alive_worms=[1]*len(gamers)
         for worm in self.worms:
             worm.add_control(self)
-        self.worm.color=(150,50,0)
+        #self.worm.color=(150,50,0)
         return self.world
     
     def change_worm(self):
@@ -73,4 +73,10 @@ class Control:
         self.worms[worm].process_events(time_delta, events, self.world, self.world.terrain)
         
 
-                
+    def draw_pointer(self):
+        x=self.change_coordinates(self.worm.x,self.worm.y)[0]
+        y=self.change_coordinates(self.worm.x,self.worm.y)[1]
+        points=[[x, y-40], [x-20, y-60], [x+20, y-60]]
+        color=(247,240,25)
+        pygame.draw.polygon(self.win,color,points,0)
+

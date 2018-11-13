@@ -3,9 +3,9 @@
 import pygame
 import time
 
-from world import World
 from control import Control
 from game import Game
+from start_window import Start_Window
 
 pygame.init()
 
@@ -17,6 +17,13 @@ prev_time = time.time()
 control=Control(win)
 game=Game(control)
 gamers=("Kasia", "Piotr")
+high_scores=[]
+start_window=Start_Window(high_scores, win, control)
+
+while start_window.running:
+    start_window.run(prev_time)
+    prev_time=start_window.time
+
 game.start(gamers)
 
 while game.running:

@@ -35,6 +35,7 @@ class World:
         for w in self.worms:
             w.draw(window)
         self.control.frame.draw()
+        self.control.draw_pointer()
         #for r in self.rockets:
             #r.draw(window)
         #self.write("Test!", (0,255,0), 100,100)

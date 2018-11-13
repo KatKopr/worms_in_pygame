@@ -57,10 +57,10 @@ class Worm:
         self.fall(terrain)
 
     def draw(self, window):
-        pygame.draw.circle(window, self.color, (self.x, window.get_height() - self.y), 5)
-        #self.control.win.blit(self.graphic, (self.x-10, window.get_height() - self.y - 30))
-        pygame.draw.rect(window, (255,0,0), (self.x-25, window.get_height() - self.y-20, 30, 5))
-        pygame.draw.rect(window, (0,255,0), (self.x-25, window.get_height() - self.y-20, int(30*self.health), 5))
+        #pygame.draw.circle(window, self.color, (self.x, window.get_height() - self.y), 5)
+        self.control.win.blit(self.graphic, (self.x-10, window.get_height() - self.y - 30))
+        pygame.draw.rect(window, (255,0,0), (self.x-15, window.get_height() - self.y-30, 30, 5))
+        pygame.draw.rect(window, (0,255,0), (self.x-15, window.get_height() - self.y-30, int(30*self.health), 5))
         for r in self.rockets:
             r.draw(window)
         #pygame.draw.line(window, (255,0,255), (self.x, window.get_height() - self.y), (self.x + self.orientation * 20, window.get_height() - self.y - 20))
