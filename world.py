@@ -29,6 +29,7 @@ class World:
         self.terrain.explode(x, y, type)
         for w in self.worms:
             w.explode(x, y, self.terrain, self)
+        #self.explosion_sound(type)
         
     def draw(self, window):
         self.terrain.draw(window)
@@ -41,3 +42,9 @@ class World:
         #self.write("Test!", (0,255,0), 100,100)
         #self.write("You are dead!", (255,0,0), worm.x-30, self.window.get_height-worm.y-30)
         #self.write("You are dead!", (0,255,0), 100,100)
+    def explosion_sound(type):
+        if type==0:
+            fire = pygame.mixer.Sound("fire1.wav")
+        elif type==1:
+            fire = pygame.mixer.Sound("fire2.wav")
+        pygame.mixer.Sound.play(fire,loops=0)

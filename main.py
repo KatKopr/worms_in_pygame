@@ -11,7 +11,7 @@ from start_window import Start_Window
 pygame.init()
 
 win = pygame.display.set_mode((1200,800))
-pygame.display.set_caption("The game")
+pygame.display.set_caption("Cats")
 
 prev_time = time.time()
 

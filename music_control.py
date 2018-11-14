@@ -12,7 +12,7 @@ class Music_Control:
         pygame.mixer.music.play(loops=-1)
     
     def stop(self):
-        pygame.mixer.music.stop()
+        pygame.mixer.music.pause()
 
         
     

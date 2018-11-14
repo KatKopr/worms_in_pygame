@@ -30,6 +30,9 @@ class Terrain():
         for i in range(len(self.level)):
             p = max(0, 40+z - abs(x-i))
             self.level[i] -= max(0, min(2*p, self.level[i]-(y-p)))
+       
         
     def get_level(self, x):
         return self.level[x]
+    
+    

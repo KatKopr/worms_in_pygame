@@ -29,6 +29,13 @@ class Worm:
         
     def remove_rocket(self,r):
         self.rockets = []
+    
+    def rocket_sound(self):
+        if self.rocket_type==0:
+            fire = pygame.mixer.Sound("fire1.wav")
+        elif self.rocket_type==1:
+            fire = pygame.mixer.Sound("fire2.wav")
+        pygame.mixer.Sound.play(fire,loops=0, maxtime=500)
         
     def process_events(self, time_delta, events, world, terrain):
         keys = pygame.key.get_pressed()
@@ -44,6 +51,7 @@ class Worm:
         for event in events:
             if event.type == pygame.KEYDOWN and event.key == ord("r") and self.can_shoot:
                 self.add_rocket(Rocket(self.x, self.y, self.orientation, self.rocket_type))
+                self.rocket_sound()
         for r in self.rockets:
             r.process_events(self, time_delta, world, terrain)
             
