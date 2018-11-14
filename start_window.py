@@ -23,6 +23,7 @@ class Start_Window:
         self.y_start=100
         self.x_start=200
         self.control=control
+        self.music_control=[]
         
     def run(self, prev_time):
         pygame.time.delay(20)
@@ -74,12 +75,19 @@ class Start_Window:
             self.sound_control()
         elif a == "HIGH SCORES":
             self.see_high_scores()
+            
+    def add_music_control(self, music_control):
+        self.music_control=music_control
         
     def add_gamer(self, gamer):
         self.gamers+=gamer
     
     def sound_control(self):
         self.sound=not self.sound
+        if self.sound:
+            self.music_control.play()
+        else:
+            self.music_control.stop()
     
     #def start_game(self):
     def quit(self):

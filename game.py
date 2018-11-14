@@ -51,12 +51,12 @@ class Game:
     def over(self):
         events=pygame.event.get()
         for event in events:
-            print("prawie koniec1")
+            #print("prawie koniec1")
             if event.type == pygame.QUIT:
                 self.quit()
             if event.type == pygame.KEYDOWN:
                 self.start_again=True
-                print("prawie koniec")
+                #print("prawie koniec")
                 self.quit()
             
         
