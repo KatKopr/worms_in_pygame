@@ -16,14 +16,14 @@ class Start_Window:
         self.window=window
         self.options=[]
         self.options.append(Option("START", 0 , 520))
-        self.options.append(Option("SET NICKNAMES", 1, 480)) 
-        self.options.append(Option("SOUND ON/OFF", 2, 440))
-        self.options.append(Option("HIGH SCORES", 3, 400))
+        self.options.append(Option("SOUND ON/OFF", 1, 480))
+        #self.options.append(Option("SET NICKNAMES", 2, 440)) 
+        #self.options.append(Option("HIGH SCORES", 3, 400))
         self.option_no=0
         self.y_start=100
         self.x_start=200
         self.control=control
-        self.music_control=[]
+        self.music_control=self.control.music_control
         
     def run(self, prev_time):
         pygame.time.delay(20)
@@ -76,9 +76,6 @@ class Start_Window:
             self.sound_control()
         elif a == "HIGH SCORES":
             self.see_high_scores()
-            
-    def add_music_control(self, music_control):
-        self.music_control=music_control
         
     def add_gamer(self, gamer):
         self.gamers+=gamer

@@ -51,7 +51,8 @@ class Worm:
         for event in events:
             if event.type == pygame.KEYDOWN and event.key == ord("r") and self.can_shoot:
                 self.add_rocket(Rocket(self.x, self.y, self.orientation, self.rocket_type))
-                self.rocket_sound()
+                if self.control.music_control.playing:
+                    self.rocket_sound()
         for r in self.rockets:
             r.process_events(self, time_delta, world, terrain)
             

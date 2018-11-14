@@ -15,14 +15,18 @@ class Control:
         self.win=window
         self.world=[]
         self.events=[]
-        self.rocket_types=["SHOTGUN","BAZOOKA"]
+        self.rocket_types=["SHOTGUN","B"]
         self.timer=Timer(self)
         self.frame=Frame(self)
         self.alive_worms=[]
         self.game=[]
+        self.music_control=[]
         
     def add_game(self,game):
         self.game=game
+    
+    def add_music_control(self, music_control):
+        self.music_control=music_control
     
     def start_world(self,gamers):
         self.world = World(self.win, gamers)

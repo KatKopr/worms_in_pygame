@@ -11,9 +11,11 @@ class Music_Control:
     
     def play(self):
         pygame.mixer.music.play(loops=-1)
+        self.playing=True
     
     def stop(self):
         pygame.mixer.music.pause()
+        self.playing=False
 
         
     

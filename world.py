@@ -27,7 +27,8 @@ class World:
         
     def explode(self, x, y, type):
         self.terrain.explode(x, y, type)
-        self.explosion_sound(type)
+        if self.control.music_control.playing:
+            self.explosion_sound(type)
         for w in self.worms:
             w.explode(x, y, self.terrain, self)
         
