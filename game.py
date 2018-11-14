@@ -32,6 +32,7 @@ class Game:
                 self.control.change_weapon()
             elif event.type == pygame.KEYDOWN:
             #and event.key == pygame.K_p:
+                self.control.frame.key()
                 self.control.timer.change_state()
             if event.type == self.control.timer.COUNTDOWN:
                 self.control.timer.countdown()

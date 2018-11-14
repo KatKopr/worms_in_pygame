@@ -119,8 +119,8 @@ class Start_Window:
         self.window.blit(text, self.control.change_coordinates(x,y))
         
     def draw_pointer(self):
-        x=100
-        y=self.options[self.option_no].y
+        x=self.x_start
+        y=self.options[self.option_no].y-5
         y=self.control.change_coordinates(x,y)[1]
         points=[[x-10, y], [x-30, y+20], [x-30, y-20]]
         color=(247,240,25)
