@@ -1,13 +1,16 @@
 Worms in Pygame (that are actually Cats in Pygame)
 
 HOW TO START:
-1. Run /main.py in your terminal
+(You need to have python installed on your computer.)
+
+1. Run 'python main.py' in your terminal or run the project in an interpreter, e.g. Spyder
 2. Choose option START and press SPACE
 3. Start moving (left and right arrow)
 
 Shoot using "R" to explode the terrain under your opponent.
 
 Make sure that you're not pointing at the spot you are standing on!
+
 You can change weapon by pressing SPACE.
 After the turn has ended you can switch to the next player using TAB.
 
