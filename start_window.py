@@ -67,7 +67,7 @@ class Start_Window:
     def process_option(self):
         a=self.options[self.option_no].name
         if a == "START":
-            #self.control.game.start_again=True
+            self.control.game.start_again=True
             self.quit()
         elif a == "SET NICKNAMES":
             pass

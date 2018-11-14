@@ -11,7 +11,7 @@ class Game:
         self.running=[]
         self.time=[]
         self.gamers=[]
-        self.start_again=True
+        self.start_again=False
     
     def start(self, gamers):
         self.world=self.control.start_world(gamers)

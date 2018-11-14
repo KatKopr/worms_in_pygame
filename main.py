@@ -17,6 +17,7 @@ prev_time = time.time()
 
 control=Control(win)
 game=Game(control)
+control.add_game(game)
 gamers=("Kasia", "Piotr")
 high_scores=[]
 start_window=Start_Window(high_scores, win, control)
