@@ -13,7 +13,7 @@ class Frame:
     def draw(self):
         self.player=self.control.world.gamers[self.control.worm_no]
         health=self.control.worm.health/0.008
-        x=200
+        x=700
         y=700
         if sum(self.control.alive_worms) > 1: 
             text="PLAYER: "+ self.player +", HEALTH: %.2f" % health
@@ -22,7 +22,7 @@ class Frame:
             te=[text3, text, text2]
             for t in te:
                 self.write(t, x, y+40*te.index(t), 30)
-            x2=x+500
+            x2=x-500
             te=["WEAPON CHANGE: SPACE","PLAYER CHANGE: TAB", "SHOOT: R", "MOVE: ARROWS"]
             for t in te:
                 self.write(t, x2, y+40*te.index(t), 30)
@@ -31,8 +31,8 @@ class Frame:
             self.control.game.over()
         
         if self.any_key:
-            t="MOVE START THE GAME"
-            self.write(t, x+150, y-200, 30)
+            t="PRESS ANY KEY (EXCEPT FROM SPACE) TO START THE GAME"
+            self.write(t, x-350, y-200, 30)
         
     def write(self, text, x, y, size):
         self.control.write(text, (0,255,0), x, y, size)

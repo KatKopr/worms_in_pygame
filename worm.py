@@ -25,10 +25,11 @@ class Worm:
         self.control=control
     
     def add_rocket(self, r):
-        self.rockets.append(r)
+        if len(self.rockets) < 5:
+            self.rockets.append(r)
         
     def remove_rocket(self,r):
-        self.rockets = []
+        del(self.rockets[0])
     
     def rocket_sound(self):
         if self.rocket_type==0:

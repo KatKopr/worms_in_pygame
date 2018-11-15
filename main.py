@@ -20,7 +20,7 @@ music_control=Music_Control()
 control.add_music_control(music_control)
 game=Game(control)
 control.add_game(game)
-gamers=("Kasia", "Piotr")
+gamers=("PLAYER 1", "PLAYER 2")
 high_scores=[]
 start_window=Start_Window(high_scores, win, control)
 music_control.play()

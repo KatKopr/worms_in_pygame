@@ -26,13 +26,16 @@ class Terrain():
             pygame.draw.line(window, (0,0,255), (i, window.get_height()), (i, window.get_height() - self.level[i]))
         
     def explode(self, x, y, type):
-        z=40*type
+        z=20*type
         for i in range(len(self.level)):
-            p = max(0, 40+z - abs(x-i))
+            p = max(0, 20+z - abs(x-i))
             self.level[i] -= max(0, min(2*p, self.level[i]-(y-p)))
        
         
     def get_level(self, x):
-        return self.level[x]
+        if x < len(self.level):
+            return self.level[x]
+        else:
+            return self.level[len(self.level)-1]
     
     
