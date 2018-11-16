@@ -15,7 +15,7 @@ class Control:
         self.win=window
         self.world=[]
         self.events=[]
-        self.rocket_types=["LASER","BAZOOKA","GUN"]
+        self.rocket_types=["LASER","GUN","BAZOOKA"]
         self.timer=Timer(self)
         self.frame=Frame(self)
         self.alive_worms=[]
