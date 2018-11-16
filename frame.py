@@ -9,7 +9,6 @@ class Frame:
         self.timer=self.control.timer
         self.weapons=self.control.rocket_types
         self.any_key=True
-        #self.weapons=["Shotgun","Bazooka"]
     def draw(self):
         self.player=self.control.world.gamers[self.control.worm_no]
         health=self.control.worm.health/0.008
@@ -31,7 +30,7 @@ class Frame:
             self.control.game.over()
         
         if self.any_key:
-            t="PRESS ANY KEY (EXCEPT FROM SPACE) TO START THE GAME"
+            t="PRESS ANY KEY (OTHER THAN SPACE) TO START THE GAME"
             self.write(t, x-350, y-200, 30)
         
     def write(self, text, x, y, size):

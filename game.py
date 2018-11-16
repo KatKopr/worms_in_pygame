@@ -31,19 +31,15 @@ class Game:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 self.control.change_weapon()
             elif event.type == pygame.KEYDOWN:
-            #and event.key == pygame.K_p:
                 self.control.frame.key()
                 self.control.timer.change_state()
             if event.type == self.control.timer.COUNTDOWN:
                 self.control.timer.countdown()
-            #self.control.winner=self.control.alive_worms[0].name
-            #self.quit
         next_time = time.time()            
         self.control.process_events(next_time - prev_time, events, self.control.worm_no)
         self.time = next_time
         self.control.win.fill((0,0,0))
         self.world.draw(self.control.win)
-        #control.process_events()
         pygame.display.update()
         
     def quit(self):
@@ -52,12 +48,10 @@ class Game:
     def over(self):
         events=pygame.event.get()
         for event in events:
-            #print("prawie koniec1")
             if event.type == pygame.QUIT:
                 self.quit()
             if event.type == pygame.KEYDOWN:
                 self.start_again=True
-                #print("prawie koniec")
                 self.quit()
             
         

@@ -20,9 +20,10 @@ music_control=Music_Control()
 control.add_music_control(music_control)
 game=Game(control)
 control.add_game(game)
-gamers=("PLAYER 1", "PLAYER 2")
+file = open("players.txt", "r")
+gamers=file.read().split("\n")
 high_scores=[]
-start_window=Start_Window(high_scores, win, control)
+start_window=Start_Window(win, control)
 music_control.play()
 
 while start_window.running:
@@ -34,8 +35,6 @@ while game.start_again:
     while game.running:
         game.run(prev_time)
         prev_time=game.time
-    #print("koniec")
-    #start_window.run(prev_time)
     
 
 pygame.quit()
