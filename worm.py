@@ -29,7 +29,8 @@ class Worm:
             self.rockets.append(r)
         
     def remove_rocket(self,r):
-        del(self.rockets[0])
+        #del(self.rockets[0])
+        self.rockets.remove(r)
     
     def rocket_sound(self):
         if self.rocket_type==0:
