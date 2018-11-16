@@ -75,7 +75,11 @@ class Worm:
             r.draw(window)
     
     def fall(self, terrain):
-        self.y=int(terrain.get_level(self.x))
+        a=0
+        if self.control.worm_no!=self.number:
+            print(self.number)
+            a=1
+        self.y=int(terrain.get_level(self.x))+5*a
         
     def dead(self):
         self.color=(255,255,255)
