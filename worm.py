@@ -77,7 +77,6 @@ class Worm:
     def fall(self, terrain):
         a=0
         if self.control.worm_no!=self.number:
-            print(self.number)
             a=1
         self.y=int(terrain.get_level(self.x))+5*a
         

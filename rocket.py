@@ -3,7 +3,7 @@
 import pygame
 
 class Rocket:
-    SPEED = 80
+    SPEED = 60
     
     def __init__(self, x, y, o, type):
         self.x = x
@@ -13,14 +13,14 @@ class Rocket:
         self.type=type
         
     def get_pos(self):
-        t = self.t * (Rocket.SPEED + 10*self.type)
+        t = self.t * (Rocket.SPEED + 20*self.type)
         x = self.x + self.orientation * t
         if self.type==0:
             y = self.y+2
         if self.type==1:
-            y = self.y - 0.008*t*t + t
-        if self.type==2:
             y = self.y - 0.005*t*t + t
+        if self.type==2:
+            y = self.y - 0.008*t*t + t
         return (x, y)
         
     def process_events(self, worm, time_delta, world, terrain):
