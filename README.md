@@ -2,6 +2,7 @@ Worms in Pygame (that are actually Cats in Pygame)
 
 HOW TO START:
 (You need to have pygame installed on your computer)
+You can choose number of players (2-4) and set their names in the file players.txt (just write names in seperate lines).
 
 1. Run 'python main.py' in your terminal or run the project in an interpreter, e.g. Spyder
 2. Choose option START and press SPACE
@@ -32,6 +33,7 @@ Koty
 
 JAK GRAĆ?
 (Musisz mieć zainstalowany pygame)
+Można dostosować liczbę graczy w pliku players.txt (wpisując imiona odpowiednich graczy w osobnych liniach).
 
 1. Uruchom grę za pomocą komendy 'python main.py' lub w odpowiednim interpereterze, np. w Spyderze
 2. Wybierz opcję START i naciśnij SPACJĘ.
